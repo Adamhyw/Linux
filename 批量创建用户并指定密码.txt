@@ -1,7 +1,0 @@
-#!/bin/bash
-for i in `seq 1 50`
-do
-    useradd -G student student$i 
-    # passwd --stdin代表使用标准输入作为密码，而 | 代表左边的输出作为右边的输入，即student$i
-    echo student$i | passwd student$i --stdin 
-done
