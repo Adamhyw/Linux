@@ -1,1 +1,42 @@
-1. shell支持普通数组也支持以字符串为索引的关联数组。普通数组的
+1. bash支持一维数组（不支持多维数组），并且没有限定数组的大小。数组元素的下标由0开始编号。
+
+2. 在Shell中，用括号来表示数组，数组元素用“空格”符号分割开。定义数组的一般形式为：
+    array_name=(value1 ... valuen)
+例如：
+    array_name=(value0 value1 value2 value3)
+或者
+    array_name=(
+    value0
+    value1
+    value2
+    value3
+    )
+还可以单独定义数组的各个分量：
+    array_name[0]=value0
+    array_name[1]=value1
+    array_name[2]=value2
+可以不使用连续的下标，而且下标的范围没有限制。
+
+3. 读取数组元素值的一般格式是：
+    ${array_name[index]}
+使用@ 或 * 可以获取数组中的所有元素，例如：
+
+    ${array_name[*]}
+    ${array_name[@]}
+    
+4. 获取数组长度的方法是使用#，例如
+length=${#数组名[@]}
+
+5. Bash支持关联数组，它可以使用字符串作为数组索引。创建关联数组需要先声明
+declare -A 数组名
+
+声明之后，可以用两种方法将元素添加到关联数组中。
+
+利用内嵌“索引-值”列表的方法，提供一个“索引-值”列表：
+
+ass_array=([index1]=val1 [index2]=val2)
+
+使用独立的“索引-值”进行赋值：
+
+ass_array[index1]=val1
+ass_array[index2]=val2
