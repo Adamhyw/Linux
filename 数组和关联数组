@@ -40,3 +40,7 @@ ass_array=([index1]=val1 [index2]=val2)
 
 ass_array[index1]=val1
 ass_array[index2]=val2
+
+6. 获取数组的索引值，可以用!，如下：
+echo ${!array_var[*]}
+这个方法适用普通数组和关联数组
